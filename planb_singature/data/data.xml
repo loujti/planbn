@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="1">
+              <record id="business_risk_criteria_severity_1" model="sign.item.type">
+            <field name="name">x_studio_lieu_du_tournage</field>
+            <field name="item_type">text</field>
+
+        </record>
+    </data>
+
+</odoo>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2017 Eficent Business and IT Consulting Services S.L.
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template id="task_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <h5>
+                        Date: <span t-field="o.date"/>
+
+                    </h5>
+                    <br/>
+                    <br/>
+                    <br/>
+
+                    <center>
+                        <h1>PREUVE DE PARTAGE D’ASSURANCE</h1>
+                    </center>
+                    <div class="page">
+                        <br/>
+                        <br/>
+                        <center>
+                            <h2>Client</h2>
+                        </center>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Nom du Client</th>
+                                <td>
+                                    <span t-field="o.partner_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Téléphone</th>
+                                <td>
+                                    <span t-field="o.partner_id.phone"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Courriel</th>
+                                <td>
+                                    <span t-field="o.partner_id.email"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <center>
+                            <h2>Projet</h2>
+                        </center>
+                        <table class="table table-bordered">
+
+                            <tr>
+                                <th>Nom du projet</th>
+                                <td>
+                                    <span t-field="o.name_projet"/>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Lieu du tournage</th>
+                                <td>
+                                    <span t-esc="o.lieu_tournage"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Date de début</th>
+                                <td>
+                                    <span t-esc="o.date_debut"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Date de fin</th>
+                                <td>
+                                    <span t-esc="o.date_fin"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Valeur des équipements totals lié au projet</th>
+                                <td>
+                                    <span t-esc="o.val_equipements"/>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div class="topage">
+
+
+                            <h6>Lloyd’s de Londres Profescau (PAS00757) / Échelon (601810)
+                            </h6>
+                        </div>
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    </template>
+    <record id="report_project_task_action" model="ir.actions.report">
+        <field name="name">Print Contract</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">project_task_report.task_report</field>
+        <field name="report_file">project_task_report.task_report</field>
+        <field
+                name="print_report_name"
+        >'Contrat'
+        </field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

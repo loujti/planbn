@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record id="view_account_move_form" model="ir.ui.view">
+        <field name="name">account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+
+            <field name="partner_id" position="after">
+
+                <field name="sale_order_id" string="Order"/>
+                <field name="origin" string="Origin"/>
+            </field>
+        </field>
+    </record>
+
+    <!--Digital Document -->
+<!--    <record id="view_aiem_consent_form_tree" model="ir.ui.view">-->
+<!--        <field name="name">Documents Tree</field>-->
+<!--        <field name="model">aiem.consent.form</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <tree string="Documents">-->
+<!--                <field name="name"/>-->
+<!--                <field name="subject"/>-->
+<!--                <field name="partner_id"/>-->
+<!--                <field name="document_type"/>-->
+<!--                <field name="user_id"/>-->
+<!--                <field name="date"/>-->
+<!--                <field name="state"/>-->
+<!--            </tree>-->
+<!--        </field>-->
+<!--    </record>-->
+
+
+
+
+<!--    &lt;!&ndash;Digital Document Template&ndash;&gt;-->
+<!--           <record id="type_item_inheirt_tree" model="ir.ui.view">-->
+<!--            <field name="name">res.partner.form</field>-->
+<!--            <field name="model">res.partner</field>-->
+<!--           <field name="inherit_id" ref="sign.sign_item_type_view_tree"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <field name="manager_id" position="after">-->
+<!--                    <field name="representative_employee_id"/>-->
+<!--                </field>-->
+<!--            </field>-->
+<!--        </record>-->
+
+
+
+</odoo>

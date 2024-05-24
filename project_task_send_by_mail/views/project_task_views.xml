@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record id="view_sale_order_form_id" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <group>
+                    <field name="val_equipements" string="Valeur totale des équipements:" widget='monetary'
+                           options="{'currency_field': 'company_currency'}"/>
+
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="view_crm_lead_form_id" model="ir.ui.view">
+        <field name="name">crm.leada.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='lead']/group/group[1]" position="after">
+
+                <group string="Equipements">
+                    <field name="val_equipement1" string="Valeur des équipements 1:" widget='monetary'
+                           options="{'currency_field': 'company_currency'}"/>
+                    <field name="val_equipement2" string="Valeur des équipements 2:" widget='monetary'
+                           options="{'currency_field': 'company_currency'}"/>
+                    <field name="val_equipement3" string="Valeur des équipements 3:" widget='monetary'
+                           options="{'currency_field': 'company_currency'}"/>
+                    <field name="val_equipements" string="Valeur totale des équipements:" widget='monetary'
+                           options="{'currency_field': 'company_currency'}"/>
+
+                </group>
+
+            </xpath>
+            <!--            <field name="mobile" position="after">-->
+
+            <!--                <field name="val_equipement1" string="Valeur des équipements 1:"/>-->
+
+            <!--            </field>-->
+            <!--            <field name="mobile" position="after">-->
+
+            <!--                <field name="val_equipement2" string="Valeur des équipements 2:"/>-->
+
+            <!--            </field>-->
+            <!--            <field name="mobile" position="after">-->
+
+            <!--                <field name="val_equipement3" string="Valeur des équipements 3:"/>-->
+
+            <!--            </field>-->
+            <!--      <field name="mobile" position="after">-->
+
+            <!--                <field name="val_equipements" string="Valeur Valeur totale des équipements:"/>-->
+
+            <!--            </field>-->
+        </field>
+    </record>
+
+    <record id="view_task_form2" model="ir.ui.view">
+        <field name="name">project.task.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <button name="action_post" position="before">
+                <button
+                        name="action_task_send"
+                        type="object"
+                        invisible=" payment_state not in ('paid', 'in_payment')"
+
+                        string="Send Contract"
+                        groups="base.group_user"
+                />
+            </button>
+            <field name="partner_id" position="after">
+
+                <field name="sale_order_id" string="Order"/>
+                <field name="origin" string="Origin"/>
+                <field name="name_projet" string="Projet"/>
+            </field>
+        </field>
+    </record>
+</odoo>
